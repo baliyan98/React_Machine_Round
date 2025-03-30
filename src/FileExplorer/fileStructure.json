@@ -1,0 +1,84 @@
+[
+  {
+    "id": "1",
+    "name": "project-1",
+    "folder": true,
+    "children": [
+      {
+        "id": "2",
+        "name": "src",
+        "folder": true,
+        "children": [
+          {
+            "id": "3",
+            "name": "components",
+            "folder": true,
+            "children": [
+              {
+                "id": "4",
+                "name": "Header.js",
+                "folder": false
+              },
+              {
+                "id": "5",
+                "name": "Sidebar.js",
+                "folder": false
+              }
+            ]
+          },
+          {
+            "id": "6",
+            "name": "App.js",
+            "folder": false
+          },
+          {
+            "id": "7",
+            "name": "index.js",
+            "folder": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "project-2",
+    "folder": true,
+    "children": [
+      {
+        "id": "9",
+        "name": "src",
+        "folder": true,
+        "children": [
+          {
+            "id": "10",
+            "name": "components",
+            "folder": true,
+            "children": [
+              {
+                "id": "11",
+                "name": "Navbar.js",
+                "folder": false
+              },
+              {
+                "id": "12",
+                "name": "Footer.js",
+                "folder": false
+              }
+            ]
+          },
+          {
+            "id": "13",
+            "name": "App.js",
+            "folder": false
+          },
+          {
+            "id": "14",
+            "name": "index.js",
+            "folder": false
+          }
+        ]
+      }
+    ]
+  }
+]
