@@ -5,6 +5,7 @@ export const SearchAutoComplete = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [showData, setShowData] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -32,10 +33,27 @@ export const SearchAutoComplete = () => {
       );
       const res = await response.json();
       setData(res?.data.items);
+      setSelectedIndex(-1);
     } catch (err) {
       console.log(err);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (data.length == 0) {
+      return;
+    }
+    if (e.key === "ArrowDown") {
+      setSelectedIndex((prev) => (prev < data.length - 1 ? prev + 1 : prev));
+    }
+    if (e.key === "ArrowUp") {
+      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+    }
+    if (e.key === "Enter" && selectedIndex >= 0) {
+      setSearchValue(data[selectedIndex].name);
+      setShowData(false);
     }
   };
 
@@ -61,6 +79,7 @@ export const SearchAutoComplete = () => {
         onChange={handleChange}
         onFocus={() => setShowData(true)}
         onBlur={() => setTimeout(() => setShowData(false), 200)}
+        onKeyDown={handleKeyDown}
       />
       {showData && (isLoading || data.length > 0) && (
         <div
@@ -79,10 +98,19 @@ export const SearchAutoComplete = () => {
         >
           {isLoading
             ? "Loading...."
-            : data.map((d) => {
+            : data.map((d, index) => {
                 return (
                   <div key={d.global_id}>
-                    <div style={{ padding: "3px" }}>{d.name}</div>
+                    <div
+                      style={{
+                        padding: "3px",
+                        cursor: "pointer",
+                        backgroundColor:
+                          selectedIndex === index ? "#ddd" : "white",
+                      }}
+                    >
+                      {d.name}
+                    </div>
                     <hr />
                   </div>
                 );
