@@ -42,6 +42,7 @@ const PopUp = ({ title, onClose, children }) => {
         alignItems: "center",
         flexDirection: "column",
       }}
+      role="dialog"
     >
       <div
         style={{
