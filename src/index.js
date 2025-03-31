@@ -9,14 +9,13 @@ import { ProgressBar } from "./ProgressBar/ProgressBar";
 import { Modal } from "./Modal/Modal";
 import { ToggleTheme } from "./ContextApi/ContextApi";
 import { ContextProvider } from "./ContextApi/ContextApi";
+import { Accordion } from "./Accordion/Accordion";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <ContextProvider>
-      <ToggleTheme />
-    </ContextProvider>
+    <Accordion />
   </StrictMode>
 );
