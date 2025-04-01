@@ -10,12 +10,13 @@ import { Modal } from "./Modal/Modal";
 import { ToggleTheme } from "./ContextApi/ContextApi";
 import { ContextProvider } from "./ContextApi/ContextApi";
 import { Accordion } from "./Accordion/Accordion";
+import { TicTacToe } from "./TicTacToe/TicTacToe";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <Accordion />
+    <TicTacToe />
   </StrictMode>
 );
